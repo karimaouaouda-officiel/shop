@@ -22,9 +22,9 @@ Route::get('/', function () {
 Route::controller(GuestController::class)->group(function(){
     Route::get('/' , 'index'); // Routing for new visiter (not logged in)
     //contact
-    Route::get('/contact' , 'contactView');
+    Route::get('/contact' , 'contactView')->name('contactView');
 
-    Route::post('/contact' , 'contact');
+    Route::post('/contact' , 'contact')->name('contact');
     //end conatct
 });
 

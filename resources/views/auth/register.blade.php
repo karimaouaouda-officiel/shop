@@ -10,8 +10,28 @@
             @csrf
 
             <div>
-                <x-label for="name" value="{{ __('Name') }}" />
-                <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+                <x-label for="first_name" value="{{ __('first_name') }}" />
+                <x-input id="first_name" class="block mt-1 w-full" type="text" name="first_name" :value="old('first_name')" required autofocus autocomplete="name" />
+            </div>
+
+            <div>
+                <x-label for="last_name" value="{{ __('last_name') }}" />
+                <x-input id="last_name" class="block mt-1 w-full" type="text" name="last_name" :value="old('last_name')" required autofocus autocomplete="name" />
+            </div>
+
+            <div class="mt-4">
+                <x-label for="age" value="{{ __('age') }}" />
+                <x-input id="age" class="block mt-1 w-full" type="number" name="age" :value="old('age')" required autocomplete="username" />
+            </div>
+
+            <div class="mt-4">
+                <x-label for="role" value="{{ __('role') }}" />
+                <x-input id="role" class="block mt-1 w-full" type="text" name="role" :value="old('role')" required autocomplete="username" />
+            </div>
+
+            <div class="mt-4">
+                <x-label for="country" value="{{ __('country') }}" />
+                <x-input id="country" class="block mt-1 w-full" type="text" name="country" :value="old('country')" required autocomplete="username" />
             </div>
 
             <div class="mt-4">
