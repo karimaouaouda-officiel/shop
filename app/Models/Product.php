@@ -37,4 +37,9 @@ class Product extends Model
     {
         return $this->hasOne(Video::class);
     }
+
+
+    public function categories(){
+        return $this->belongsToMany(Category::class,'products_to_categories');
+    }
 }

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Shop;
 use App\Http\Requests\StoreShopRequest;
 use App\Http\Requests\UpdateShopRequest;
+use App\Models\UnverifiedShop;
+use Illuminate\Http\Response;
 
 class ShopController extends Controller
 {
@@ -18,6 +20,14 @@ class ShopController extends Controller
         //
     }
 
+    public function getAll(){
+        $ver = request()->input('verified');
+
+        $shops = $ver == "yes" ? Shop::all() : UnverifiedShop::all();
+
+        return $shops->toJson();
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -28,15 +38,23 @@ class ShopController extends Controller
         //
     }
 
+    public function createView(){
+        return view('seller.create-shop');
+    }
+
     /**
      * Store a newly created resource in storage.
      *
      * @param  \App\Http\Requests\StoreShopRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreShopRequest $request)
-    {
-        //
+    public function store(StoreShopRequest $request){
+    $shop = new UnverifiedShopController;
+        if( $shop->clone($request) ){
+            return (new Response)->setContent( json_encode([
+                "message" => "shop created succussfully, you must wait untill we verify it, we will contact you as soon as possible"
+            ]) )->setStatusCode(200);
+        }
     }
 
     /**

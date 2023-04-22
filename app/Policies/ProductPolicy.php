@@ -3,6 +3,7 @@
 namespace App\Policies;
 
 use App\Models\Product;
+use App\Models\Shop;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 use Illuminate\Auth\Access\Response;
@@ -41,9 +42,9 @@ class ProductPolicy
      * @param  \App\Models\User  $user
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function create(User $user)
+    public function create(Shop $shop)
     {
-        if($user->role != 'seller'){
+        if($shop->isValidShop()){
             return Response::deny("you must be a seller to publish a product");
         }
 

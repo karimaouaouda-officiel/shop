@@ -18,6 +18,18 @@
                 <x-label for="last_name" value="{{ __('last_name') }}" />
                 <x-input id="last_name" class="block mt-1 w-full" type="text" name="last_name" :value="old('last_name')" required autofocus autocomplete="name" />
             </div>
+            <div>
+                <x-label for="city" value="{{ __('city') }}" />
+                <x-input id="city" class="block mt-1 w-full" type="text" name="city" :value="old('city')" required autofocus autocomplete="name" />
+            </div>
+            <div>
+                <x-label for="code" value="{{ __('code') }}" />
+                <x-input id="code" class="block mt-1 w-full" type="text" name="code" :value="old('code')" required autofocus autocomplete="name" />
+            </div>
+            <div>
+                <x-label for="adress_line_1" value="{{ __('adress_line_1') }}" />
+                <x-input id="adress_line_1" class="block mt-1 w-full" type="text" name="adress_line_1" :value="old('adress_line_1')" required autofocus autocomplete="name" />
+            </div>
 
             <div class="mt-4">
                 <x-label for="age" value="{{ __('age') }}" />

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contact;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 
@@ -34,5 +35,12 @@ class GuestController extends Controller
         return response([
             'message' => "message sended successfully"
         ],202);
+    }
+
+
+
+    public function discover(){
+        $products = Product::all();
+        dd($products);
     }
 }

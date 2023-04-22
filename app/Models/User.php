@@ -29,7 +29,8 @@ class User extends Authenticatable
         'email',
         'password',
         'age',
-        'role'
+        'role',
+        'statut'
     ];
 
     /**
@@ -63,15 +64,32 @@ class User extends Authenticatable
     ];
 
 
-    public function adresse(){
+    public function adresse()
+    {
         return $this->hasOne(Adress::class);
     }
 
-    public function shop(){
+    public function shop()
+    {
         return $this->hasOne(Shop::class);
     }
 
-    public function orders(){
+    public function unverifiedShop(){
+        return $this->hasOne(UnverifiedShop::class);
+    }
+
+    public function orders()
+    {
         return $this->hasMany(Order::class);
+    }
+
+    public function getPostAttribute()
+    {
+        return "hello";
+    }
+
+    public function getFullNameAttribute()
+    {
+        return $this->first_name . " " . $this->last_name;
     }
 }

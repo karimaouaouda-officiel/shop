@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
+use App\Policies\ProductPolicy;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
@@ -13,6 +17,10 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function createProductView() : View{
+        return view("seller.shop.create-product");
+    }
     public function index()
     {
         //
@@ -36,7 +44,7 @@ class ProductController extends Controller
      */
     public function store(StoreProductRequest $request)
     {
-        //
+        $shop = Auth::user()->get_post;
     }
 
     /**
